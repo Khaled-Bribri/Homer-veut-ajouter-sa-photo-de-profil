@@ -11,6 +11,11 @@
 
 <body>
     <?php
+    if (isset($_POST['Delete'])) {
+
+        array_map('unlink', glob("public/uploads/*.PNG")); // delete all files in some/dir
+    }
+  
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
        
         $uploadDir = 'public/uploads/';
@@ -64,6 +69,7 @@
         <label for="imageUpload">Upload an profile image</label>
         <input type="file" name="avatar" id="imageUpload" />
         <button name="send">Send</button>
+        <button name="Delete">Delete</button>
     </form>
 
 
